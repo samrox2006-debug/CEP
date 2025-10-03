@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Completo de JavaScript</title>
+    <link rel="stylesheet" href="estilo/style-css.css">
+    
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📘 Manual Completo de JavaScript</h1>
+            <p class="subtitle">Guia completo para iniciantes e desenvolvedores</p>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <h3>Índice</h3>
+                <div class="nav-item active" data-section="intro">Introdução</div>
+                <div class="nav-item" data-section="variaveis">Variáveis</div>
+                <div class="nav-item" data-section="tipos">Tipos de Dados</div>
+                <div class="nav-item" data-section="operadores">Operadores</div>
+                <div class="nav-item" data-section="condicionais">Condicionais</div>
+                <div class="nav-item" data-section="loops">Loops</div>
+                <div class="nav-item" data-section="funcoes">Funções</div>
+                <div class="nav-item" data-section="arrays">Arrays</div>
+                <div class="nav-item" data-section="objetos">Objetos</div>
+                <div class="nav-item" data-section="dom">DOM</div>
+                <div class="nav-item" data-section="eventos">Eventos</div>
+                <div class="nav-item" data-section="async">Assíncrono</div>
+            </aside>
+
+            <main class="content">
+                <!-- Introdução -->
+                <section class="section active" id="intro">
+                    <h2>Introdução ao JavaScript</h2>
+                    <p>JavaScript é uma linguagem de programação de alto nível, interpretada e orientada a objetos. É uma das principais tecnologias da World Wide Web, junto com HTML e CSS.</p>
+                    
+                    <h3>O que é JavaScript?</h3>
+                    <p>JavaScript permite criar conteúdo dinamicamente atualizado, controlar multimídia, animar imagens e muito mais. É executado diretamente no navegador do usuário.</p>
+                    
+                    <div class="tip">
+                        <strong>💡 Dica:</strong> JavaScript é diferente de Java! Apesar do nome similar, são linguagens completamente diferentes.
+                    </div>
+
+                    <h3>Como usar JavaScript?</h3>
+                    <p>Existem três formas principais de incluir JavaScript em uma página HTML:</p>
+                    
+                    <div class="example">
+                        <strong>1. JavaScript Inline:</strong>
+                        <pre><code>&lt;button onclick="alert('Olá!')"&gt;Clique&lt;/button&gt;</code></pre>
+                    </div>
+
+                    <div class="example">
+                        <strong>2. JavaScript Interno:</strong>
+                        <pre><code>&lt;script&gt;
+    console.log('Olá, Mundo!');
+&lt;/script&gt;</code></pre>
+                    </div>
+
+                    <div class="example">
+                        <strong>3. JavaScript Externo:</strong>
+                        <pre><code>&lt;script src="script.js"&gt;&lt;/script&gt;</code></pre>
+                    </div>
+                </section>
+
+                <!-- Variáveis -->
+                <section class="section" id="variaveis">
+                    <h2>Variáveis</h2>
+                    <p>Variáveis são contêineres para armazenar valores de dados. Em JavaScript, você pode declarar variáveis usando <code>var</code>, <code>let</code> ou <code>const</code>.</p>
+
+                    <h3>var (não recomendado)</h3>
+                    <p>A forma antiga de declarar variáveis. Tem escopo de função e pode causar problemas.</p>
+                    <pre><code>var nome = "João";
+var idade = 25;</code></pre>
+
+                    <h3>let (recomendado)</h3>
+                    <p>Permite declarar variáveis com escopo de bloco. O valor pode ser alterado.</p>
+                    <pre><code>let cidade = "São Paulo";
+cidade = "Rio de Janeiro"; // OK!</code></pre>
+
+                    <h3>const (recomendado)</h3>
+                    <p>Declara constantes. O valor não pode ser reatribuído.</p>
+                    <pre><code>const PI = 3.14159;
+// PI = 3.14; // Erro!</code></pre>
+
+                    <div class="tip">
+                        <strong>💡 Melhor Prática:</strong> Use <code>const</code> por padrão. Use <code>let</code> apenas quando precisar reatribuir o valor. Evite <code>var</code>.
+                    </div>
+
+                    <h3>Regras para nomes de variáveis:</h3>
+                    <ul>
+                        <li>Devem começar com uma letra, $ ou _</li>
+                        <li>Podem conter letras, números, $ e _</li>
+                        <li>São case-sensitive (idade é diferente de Idade)</li>
+                        <li>Não podem usar palavras reservadas (let, const, if, etc.)</li>
+                    </ul>
+                </section>
+
+                <!-- Tipos de Dados -->
+                <section class="section" id="tipos">
+                    <h2>Tipos de Dados</h2>
+                    <p>JavaScript possui vários tipos de dados primitivos e um tipo de objeto.</p>
+
+                    <h3>Tipos Primitivos</h3>
+                    
+                    <table>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Descrição</th>
+                            <th>Exemplo</th>
+                        </tr>
+                        <tr>
+                            <td><code>String</code></td>
+                            <td>Texto</td>
+                            <td><code>"Olá"</code> ou <code>'Mundo'</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>Number</code></td>
+                            <td>Números</td>
+                            <td><code>42</code> ou <code>3.14</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>Boolean</code></td>
+                            <td>Verdadeiro/Falso</td>
+                            <td><code>true</code> ou <code>false</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>Undefined</code></td>
+                            <td>Não definido</td>
+                            <td><code>undefined</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>Null</code></td>
+                            <td>Valor nulo</td>
+                            <td><code>null</code></td>
+                        </tr>
+                    </table>
+
+                    <h3>Strings</h3>
+                    <pre><code>const nome = "Maria";
+const sobrenome = 'Silva';
+const mensagem = `Olá, ${nome}!`; // Template literal</code></pre>
+
+                    <h3>Numbers</h3>
+                    <pre><code>const inteiro = 42;
+const decimal = 3.14;
+const negativo = -10;
+const infinito = Infinity;</code></pre>
+
+                    <h3>Booleans</h3>
+                    <pre><code>const ativo = true;
+const inativo = false;
+const maiorDeIdade = 18 >= 18; // true</code></pre>
+
+                    <div class="example">
+                        <strong>Verificando o tipo:</strong>
+                        <pre><code>console.log(typeof "texto");  // "string"
+console.log(typeof 42);       // "number"
+console.log(typeof true);     // "boolean"</code></pre>
+                    </div>
+                </section>
+
+                <!-- Operadores -->
+                <section class="section" id="operadores">
+                    <h2>Operadores</h2>
+                    
+                    <h3>Operadores Aritméticos</h3>
+                    <table>
+                        <tr>
+                            <th>Operador</th>
+                            <th>Descrição</th>
+                            <th>Exemplo</th>
+                        </tr>
+                        <tr>
+                            <td><code>+</code></td>
+                            <td>Adição</td>
+                            <td><code>5 + 3 = 8</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>-</code></td>
+                            <td>Subtração</td>
+                            <td><code>5 - 3 = 2</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>*</code></td>
+                            <td>Multiplicação</td>
+                            <td><code>5 * 3 = 15</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/</code></td>
+                            <td>Divisão</td>
+                            <td><code>6 / 3 = 2</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>%</code></td>
+                            <td>Módulo (resto)</td>
+                            <td><code>5 % 2 = 1</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>**</code></td>
+                            <td>Exponenciação</td>
+                            <td><code>2 ** 3 = 8</code></td>
+                        </tr>
+                    </table>
+
+                    <h3>Operadores de Atribuição</h3>
+                    <pre><code>let x = 10;
+x += 5;  // x = x + 5  → 15
+x -= 3;  // x = x - 3  → 12
+x *= 2;  // x = x * 2  → 24
+x /= 4;  // x = x / 4  → 6</code></pre>
+
+                    <h3>Operadores de Comparação</h3>
+                    <table>
+                        <tr>
+                            <th>Operador</th>
+                            <th>Descrição</th>
+                            <th>Exemplo</th>
+                        </tr>
+                        <tr>
+                            <td><code>==</code></td>
+                            <td>Igual (valor)</td>
+                            <td><code>5 == "5" // true</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>===</code></td>
+                            <td>Igual (valor e tipo)</td>
+                            <td><code>5 === "5" // false</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>!=</code></td>
+                            <td>Diferente</td>
+                            <td><code>5 != 3 // true</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>!==</code></td>
+                            <td>Diferente (estrito)</td>
+                            <td><code>5 !== "5" // true</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&gt;</code></td>
+                            <td>Maior que</td>
+                            <td><code>5 &gt; 3 // true</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;</code></td>
+                            <td>Menor que</td>
+                            <td><code>5 &lt; 3 // false</code></td>
+                        </tr>
+                    </table>
+
+                    <h3>Operadores Lógicos</h3>
+                    <pre><code>const a = true;
+const b = false;
+
+console.log(a && b);  // AND: false
+console.log(a || b);  // OR: true
+console.log(!a);      // NOT: false</code></pre>
+                </section>
+
+                <!-- Condicionais -->
+                <section class="section" id="condicionais">
+                    <h2>Estruturas Condicionais</h2>
+                    
+                    <h3>if / else</h3>
+                    <pre><code>const idade = 18;
+
+if (idade >= 18) {
+    console.log("Maior de idade");
+} else {
+    console.log("Menor de idade");
+}</code></pre>
+
+                    <h3>if / else if / else</h3>
+                    <pre><code>const nota = 75;
+
+if (nota >= 90) {
+    console.log("A");
+} else if (nota >= 80) {
+    console.log("B");
+} else if (nota >= 70) {
+    console.log("C");
+} else {
+    console.log("D");
+}</code></pre>
+
+                    <h3>Operador Ternário</h3>
+                    <pre><code>const idade = 20;
+const status = idade >= 18 ? "Adulto" : "Menor";
+console.log(status); // "Adulto"</code></pre>
+
+                    <h3>switch</h3>
+                    <pre><code>const diaSemana = 3;
+
+switch (diaSemana) {
+    case 1:
+        console.log("Segunda");
+        break;
+    case 2:
+        console.log("Terça");
+        break;
+    case 3:
+        console.log("Quarta");
+        break;
+    default:
+        console.log("Outro dia");
+}</code></pre>
+
+                    <div class="note">
+                        <strong>⚠️ Atenção:</strong> Não esqueça do <code>break</code> no switch, caso contrário a execução continuará para o próximo caso!
+                    </div>
+                </section>
+
+                <!-- Loops -->
+                <section class="section" id="loops">
+                    <h2>Estruturas de Repetição (Loops)</h2>
+                    
+                    <h3>for</h3>
+                    <p>Usado quando você sabe quantas vezes quer repetir.</p>
+                    <pre><code>for (let i = 0; i < 5; i++) {
+    console.log(i); // 0, 1, 2, 3, 4
+}</code></pre>
+
+                    <h3>while</h3>
+                    <p>Executa enquanto a condição for verdadeira.</p>
+                    <pre><code>let contador = 0;
+
+while (contador < 5) {
+    console.log(contador);
+    contador++;
+}</code></pre>
+
+                    <h3>do...while</h3>
+                    <p>Executa pelo menos uma vez, depois verifica a condição.</p>
+                    <pre><code>let num = 0;
+
+do {
+    console.log(num);
+    num++;
+} while (num < 5);</code></pre>
+
+                    <h3>for...of</h3>
+                    <p>Itera sobre valores de um array.</p>
+                    <pre><code>const frutas = ["maçã", "banana", "laranja"];
+
+for (const fruta of frutas) {
+    console.log(fruta);
+}</code></pre>
+
+                    <h3>for...in</h3>
+                    <p>Itera sobre propriedades de um objeto.</p>
+                    <pre><code>const pessoa = { nome: "João", idade: 30 };
+
+for (const chave in pessoa) {
+    console.log(chave + ": " + pessoa[chave]);
+}</code></pre>
+
+                    <h3>break e continue</h3>
+                    <pre><code>// break: sai do loop
+for (let i = 0; i < 10; i++) {
+    if (i === 5) break;
+    console.log(i); // 0, 1, 2, 3, 4
+}
+
+// continue: pula para próxima iteração
+for (let i = 0; i < 5; i++) {
+    if (i === 2) continue;
+    console.log(i); // 0, 1, 3, 4
+}</code></pre>
+                </section>
+
+                <!-- Funções -->
+                <section class="section" id="funcoes">
+                    <h2>Funções</h2>
+                    <p>Funções são blocos de código reutilizáveis que executam uma tarefa específica.</p>
+
+                    <h3>Declaração de Função</h3>
+                    <pre><code>function saudar(nome) {
+    return "Olá, " + nome + "!";
+}
+
+console.log(saudar("Maria")); // "Olá, Maria!"</code></pre>
+
+                    <h3>Expressão de Função</h3>
+                    <pre><code>const somar = function(a, b) {
+    return a + b;
+};
+
+console.log(somar(5, 3)); // 8</code></pre>
+
+                    <h3>Arrow Function</h3>
+                    <p>Sintaxe mais curta para escrever funções.</p>
+                    <pre><code>// Sintaxe completa
+const multiplicar = (a, b) => {
+    return a * b;
+};
+
+// Sintaxe curta (retorno implícito)
+const multiplicar2 = (a, b) => a * b;
+
+// Um parâmetro (parênteses opcionais)
+const dobrar = x => x * 2;
+
+console.log(multiplicar(4, 3)); // 12</code></pre>
+
+                    <h3>Parâmetros Padrão</h3>
+                    <pre><code>function saudar(nome = "visitante") {
+    return `Olá, ${nome}!`;
+}
+
+console.log(saudar());        // "Olá, visitante!"
+console.log(saudar("João"));  // "Olá, João!"</code></pre>
+
+                    <h3>Rest Parameters</h3>
+                    <pre><code>function somar(...numeros) {
+    return numeros.reduce((total, num) => total + num, 0);
+}
+
+console.log(somar(1, 2, 3, 4, 5)); // 15</code></pre>
+
+                    <div class="tip">
+                        <strong>💡 Dica:</strong> Arrow functions são ideais para funções curtas e callbacks. Use funções tradicionais quando precisar de <code>this</code> dinâmico.
+                    </div>
+                </section>
+
+                <!-- Arrays -->
+                <section class="section" id="arrays">
+                    <h2>Arrays</h2>
+                    <p>Arrays são estruturas de dados que armazenam múltiplos valores em uma única variável.</p>
+
+                    <h3>Criando Arrays</h3>
+                    <pre><code>const frutas = ["maçã", "banana", "laranja"];
+const numeros = [1, 2, 3, 4, 5];
+const misto = ["texto", 42, true, null];</code></pre>
+
+                    <h3>Acessando Elementos</h3>
+                    <pre><code>const frutas = ["maçã", "banana", "laranja"];
+
+console.log(frutas[0]); // "maçã"
+console.log(frutas[1]); // "banana"
+console.log(frutas.length); // 3</code></pre>
+
+                    <h3>Métodos Principais</h3>
+
+                    <h4>push() e pop()</h4>
+                    <pre><code>const nums = [1, 2, 3];
+nums.push(4);        // Adiciona no final: [1, 2, 3, 4]
+nums.pop();          // Remove do final: [1, 2, 3]</code></pre>
+
+                    <h4>unshift() e shift()</h4>
+                    <pre><code>const nums = [2, 3, 4];
+nums.unshift(1);     // Adiciona no início: [1, 2, 3, 4]
+nums.shift();        // Remove do início: [2, 3, 4]</code></pre>
+
+                    <h4>map()</h4>
+                    <pre><code>const nums = [1, 2, 3, 4];
+const dobrados = nums.map(n => n * 2);
+console.log(dobrados); // [2, 4, 6, 8]</code></pre>
+
+                    <h4>filter()</h4>
+                    <pre><code>const nums = [1, 2, 3, 4, 5, 6];
+const pares = nums.filter(n => n % 2 === 0);
+console.log(pares); // [2, 4, 6]</code></pre>
+
+                    <h4>reduce()</h4>
+                    <pre><code>const nums = [1, 2, 3, 4];
+const soma = nums.reduce((total, n) => total + n, 0);
+console.log(soma); // 10</code></pre>
+
+                    <h4>find() e findIndex()</h4>
+                    <pre><code>const nums = [1, 2, 3, 4, 5];
+const primeiro = nums.find(n => n > 3);  // 4
+const indice = nums.findIndex(n => n > 3); // 3</code></pre>
+
+                    <h4>includes()</h4>
+                    <pre><code>const frutas = ["maçã", "banana"];
+console.log(frutas.includes("maçã")); // true</code></pre>
+
+                    <h4>slice() e splice()</h4>
+                    <pre><code>const nums = [1, 2, 3, 4, 5];
+
+// slice: cria novo array
+const parte = nums.slice(1, 3); // [2, 3]
+
+// splice: modifica array original
+nums.splice(2, 1); // Remove 1 elemento no índice 2</code></pre>
+                </section>
+
+                <!-- Objetos -->
+                <section class="section" id="objetos">
+                    <h2>Objetos</h2>
+                    <p>Objetos são coleções de propriedades, onde cada propriedade tem um nome (chave) e um valor.</p>
+
+                    <h3>Criando Objetos</h3>
+                    <pre><code>const pessoa = {
+    nome: "João",
+    idade: 30,
+    cidade: "São Paulo",
+    ativo: true
+};</code></pre>
+
+                    <h3>Acessando Propriedades</h3>
+                    <pre><code>// Notação de ponto
+console.log(pessoa.nome); // "João"
+
+// Notação de colchetes
+console.log(pessoa["idade"]); // 30
+
+// Útil com variáveis
+const prop = "cidade";
+console.log(pessoa[prop]); // "São Paulo"</code></pre>
+
+                    <h3>Modificando Propriedades</h3>
+                    <pre><code>pessoa.idade = 31;
+pessoa["cidade"] = "Rio de Janeiro";
+pessoa.profissao = "Desenvolvedor"; // Adiciona nova propriedade</code></pre>
+
+                    <h3>Métodos em Objetos</h3>
+                    <pre><code>const pessoa = {
+    nome: "Maria",
+    idade: 25,
+    saudar: function() {
+        return `Olá, meu nome é ${this.nome}!`;
+    },
+    // Sintaxe moderna
+    apresentar() {
+        return `Tenho ${this.idade} anos.`;
+    }
+};
+
+console.log(pessoa.saudar()); // "Olá, meu nome é Maria!"</code></pre>
+
+                    <h3>Destructuring</h3>
+                    <pre><code>const pessoa = { nome: "João", idade: 30, cidade: "SP" };
+
+// Extrair propriedades
+const { nome, idade } = pessoa;
+console.log(nome); // "João"
+
+// Com renomeação
+const { nome: nomePessoa } = pessoa;
+console.log(nomePessoa); // "João"</code></pre>
+
+                    <h3>Spread Operator</h3>
+                    <pre><code>const pessoa = { nome: "João", idade: 30 };
+const endereco = { cidade: "SP", estado: "SP" };
+
+// Combinar objetos
+const completo = { ...pessoa, ...endereco };
+// { nome: "João", idade: 30, cidade: "SP", estado: "SP" }
+
+// Copiar e modificar
+const pessoaAtualizada = { ...pessoa, idade: 31 };</code></pre>
+
+                    <h3>Object Methods</h3>
+                    <pre><code>const obj = { a: 1, b: 2, c: 3 };
+
+// Obter chaves
+console.log(Object.keys(obj)); // ["a", "b", "c"]
+
+// Obter valores
+console.log(Object.values(obj)); // [1, 2, 3]
+
+// Obter pares chave-valor
+console.log(Object.entries(obj)); // [["a", 1], ["b", 2], ["c", 3]]</code></pre>
+                </section>
+
+                <!-- DOM -->
+                <section class="section" id="dom">
+                    <h2>DOM - Document Object Model</h2>
+                    <p>O DOM é uma interface de programação que representa a estrutura de documentos HTML/XML como uma árvore de objetos.</p>
+
+                    <h3>Selecionando Elementos</h3>
+                    <pre><code>// Por ID
+const titulo = document.getElementById("titulo");
+
+// Por classe (retorna HTMLCollection)
+const itens = document.getElementsByClassName("item");
+
+// Por tag
+const paragrafos = document.getElementsByTagName("p");
+
+// Query Selector (CSS selector) - retorna primeiro
+const primeiro = document.querySelector(".item");
+
+// Query Selector All - retorna NodeList
+const todos = document.querySelectorAll(".item");</code></pre>
+
+                    <h3>Manipulando Conteúdo</h3>
+                    <pre><code>const elemento = document.querySelector("#meuElemento");
+
+// Texto puro
+elemento.textContent = "Novo texto";
+
+// HTML
+elemento.innerHTML = "&lt;strong&gt;Texto em negrito&lt;/strong&gt;";
+
+// Atributos
+elemento.setAttribute("title", "Meu título");
+const titulo = elemento.getAttribute("title");
+elemento.removeAttribute("title");</code></pre>
+
+                    <h3>Manipulando Classes</h3>
+                    <pre><code>const elemento = document.querySelector(".box");
+
+// Adicionar classe
+elemento.classList.add("ativo");
+
+// Remover classe
+elemento.classList.remove("ativo");
+
+// Alternar classe
+elemento.classList.toggle("ativo");
+
+// Verificar se tem classe
+if (elemento.classList.contains("ativo")) {
+    console.log("Está ativo!");
+}</code></pre>
+
+                    <h3>Manipulando Estilos</h3>
+                    <pre><code>const elemento = document.querySelector(".box");
+
+// Estilo inline
+elemento.style.color = "red";
+elemento.style.backgroundColor = "blue";
+elemento.style.fontSize = "20px";
+
+// Múltiplos estilos
+Object.assign(elemento.style, {
+    color: "white",
+    padding: "20px",
+    border: "1px solid black"
+});</code></pre>
+
+                    <h3>Criando e Removendo Elementos</h3>
+                    <pre><code>// Criar elemento
+const novoDiv = document.createElement("div");
+novoDiv.textContent = "Novo elemento";
+novoDiv.classList.add("item");
+
+// Adicionar ao DOM
+document.body.appendChild(novoDiv);
+
+// Inserir antes de outro elemento
+const referencia = document.querySelector(".primeiro");
+document.body.insertBefore(novoDiv, referencia);
+
+// Remover elemento
+novoDiv.remove();
+
+// Ou usando o pai
+const pai = novoDiv.parentElement;
+pai.removeChild(novoDiv);</code></pre>
+
+                    <h3>Navegando no DOM</h3>
+                    <pre><code>const elemento = document.querySelector(".item");
+
+// Pai
+const pai = elemento.parentElement;
+
+// Filhos
+const filhos = elemento.children;
+const primeiroFilho = elemento.firstElementChild;
+const ultimoFilho = elemento.lastElementChild;
+
+// Irmãos
+const proximo = elemento.nextElementSibling;
+const anterior = elemento.previousElementSibling;</code></pre>
+                </section>
+
+                <!-- Eventos -->
+                <section class="section" id="eventos">
+                    <h2>Eventos</h2>
+                    <p>Eventos são ações que ocorrem no navegador, como cliques, movimentos do mouse, teclas pressionadas, etc.</p>
+
+                    <h3>addEventListener</h3>
+                    <pre><code>const botao = document.querySelector("#meuBotao");
+
+// Adicionar evento de clique
+botao.addEventListener("click", function() {
+    console.log("Botão clicado!");
+});
+
+// Com arrow function
+botao.addEventListener("click", () => {
+    console.log("Clicou novamente!");
+});</code></pre>
+
+                    <h3>Eventos Comuns</h3>
+                    <pre><code>// Eventos de Mouse
+elemento.addEventListener("click", () => {});
+elemento.addEventListener("dblclick", () => {});
+elemento.addEventListener("mouseenter", () => {});
+elemento.addEventListener("mouseleave", () => {});
+elemento.addEventListener("mousemove", () => {});
+
+// Eventos de Teclado
+document.addEventListener("keydown", () => {});
+document.addEventListener("keyup", () => {});
+document.addEventListener("keypress", () => {});
+
+// Eventos de Formulário
+input.addEventListener("input", () => {});
+input.addEventListener("change", () => {});
+form.addEventListener("submit", () => {});
+
+// Eventos de Página
+window.addEventListener("load", () => {});
+window.addEventListener("resize", () => {});
+window.addEventListener("scroll", () => {});</code></pre>
+
+                    <h3>Objeto Event</h3>
+                    <pre><code>botao.addEventListener("click", (event) => {
+    // Prevenir comportamento padrão
+    event.preventDefault();
+    
+    // Parar propagação
+    event.stopPropagation();
+    
+    // Elemento que disparou o evento
+    console.log(event.target);
+    
+    // Elemento ao qual o listener está anexado
+    console.log(event.currentTarget);
+    
+    // Tipo do evento
+    console.log(event.type); // "click"
+});</code></pre>
+
+                    <h3>Event Delegation</h3>
+                    <pre><code>// Ao invés de adicionar evento em cada item
+const lista = document.querySelector("#minhaLista");
+
+lista.addEventListener("click", (e) => {
+    if (e.target.classList.contains("item")) {
+        console.log("Item clicado:", e.target.textContent);
+    }
+});</code></pre>
+
+                    <h3>Removendo Eventos</h3>
+                    <pre><code>function handleClick() {
+    console.log("Clicado!");
+}
+
+// Adicionar
+botao.addEventListener("click", handleClick);
+
+// Remover
+botao.removeEventListener("click", handleClick);</code></pre>
+
+                    <div class="example">
+                        <strong>Exemplo Prático - Contador:</strong>
+                        <pre><code>let contador = 0;
+const display = document.querySelector("#contador");
+const btnIncrementar = document.querySelector("#incrementar");
+const btnDecrementar = document.querySelector("#decrementar");
+
+btnIncrementar.addEventListener("click", () => {
+    contador++;
+    display.textContent = contador;
+});
+
+btnDecrementar.addEventListener("click", () => {
+    contador--;
+    display.textContent = contador;
+});</code></pre>
+                    </div>
+                </section>
+
+                <!-- Assíncrono -->
+                <section class="section" id="async">
+                    <h2>JavaScript Assíncrono</h2>
+                    <p>JavaScript assíncrono permite executar operações que levam tempo sem bloquear o resto do código.</p>
+
+                    <h3>setTimeout e setInterval</h3>
+                    <pre><code>// Executar após um delay (uma vez)
+setTimeout(() => {
+    console.log("Executado após 2 segundos");
+}, 2000);
+
+// Executar repetidamente
+const intervalo = setInterval(() => {
+    console.log("A cada 1 segundo");
+}, 1000);
+
+// Parar o intervalo
+clearInterval(intervalo);</code></pre>
+
+                    <h3>Callbacks</h3>
+                    <p>Funções passadas como argumentos para serem executadas após uma operação.</p>
+                    <pre><code>function buscarDados(callback) {
+    setTimeout(() => {
+        const dados = { nome: "João", idade: 30 };
+        callback(dados);
+    }, 1000);
+}
+
+buscarDados((dados) => {
+    console.log(dados);
+});</code></pre>
+
+                    <h3>Promises</h3>
+                    <p>Objeto que representa a eventual conclusão ou falha de uma operação assíncrona.</p>
+                    <pre><code>// Criar uma Promise
+const minhaPromise = new Promise((resolve, reject) => {
+    const sucesso = true;
+    
+    setTimeout(() => {
+        if (sucesso) {
+            resolve("Operação bem-sucedida!");
+        } else {
+            reject("Erro na operação!");
+        }
+    }, 1000);
+});
+
+// Usar a Promise
+minhaPromise
+    .then((resultado) => {
+        console.log(resultado);
+    })
+    .catch((erro) => {
+        console.error(erro);
+    })
+    .finally(() => {
+        console.log("Finalizado!");
+    });</code></pre>
+
+                    <h3>Encadeando Promises</h3>
+                    <pre><code>buscarUsuario()
+    .then(usuario => {
+        console.log("Usuário:", usuario);
+        return buscarPedidos(usuario.id);
+    })
+    .then(pedidos => {
+        console.log("Pedidos:", pedidos);
+        return buscarDetalhes(pedidos[0].id);
+    })
+    .then(detalhes => {
+        console.log("Detalhes:", detalhes);
+    })
+    .catch(erro => {
+        console.error("Erro:", erro);
+    });</code></pre>
+
+                    <h3>Async/Await</h3>
+                    <p>Sintaxe mais limpa para trabalhar com Promises.</p>
+                    <pre><code>// Função assíncrona
+async function buscarDados() {
+    try {
+        const usuario = await buscarUsuario();
+        const pedidos = await buscarPedidos(usuario.id);
+        const detalhes = await buscarDetalhes(pedidos[0].id);
+        
+        console.log(detalhes);
+    } catch (erro) {
+        console.error("Erro:", erro);
+    }
+}
+
+buscarDados();</code></pre>
+
+                    <h3>Fetch API</h3>
+                    <p>API moderna para fazer requisições HTTP.</p>
+                    <pre><code>// GET request
+fetch("https://api.exemplo.com/dados")
+    .then(response => response.json())
+    .then(dados => console.log(dados))
+    .catch(erro => console.error(erro));
+
+// Com async/await
+async function buscarAPI() {
+    try {
+        const response = await fetch("https://api.exemplo.com/dados");
+        const dados = await response.json();
+        console.log(dados);
+    } catch (erro) {
+        console.error("Erro:", erro);
+    }
+}
+
+// POST request
+async function enviarDados() {
+    const response = await fetch("https://api.exemplo.com/dados", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ nome: "João", idade: 30 })
+    });
+    
+    const resultado = await response.json();
+    console.log(resultado);
+}</code></pre>
+
+                    <h3>Promise.all</h3>
+                    <p>Executar múltiplas promises em paralelo.</p>
+                    <pre><code>const promise1 = fetch("url1").then(r => r.json());
+const promise2 = fetch("url2").then(r => r.json());
+const promise3 = fetch("url3").then(r => r.json());
+
+Promise.all([promise1, promise2, promise3])
+    .then(([dados1, dados2, dados3]) => {
+        console.log(dados1, dados2, dados3);
+    })
+    .catch(erro => {
+        console.error("Alguma promise falhou:", erro);
+    });</code></pre>
+
+                    <div class="tip">
+                        <strong>💡 Dica:</strong> Use async/await para código mais limpo e legível. É especialmente útil quando você precisa fazer múltiplas operações assíncronas em sequência.
+                    </div>
+
+                    <div class="note">
+                        <strong>⚠️ Atenção:</strong> Funções async sempre retornam uma Promise. Use await apenas dentro de funções async.
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
